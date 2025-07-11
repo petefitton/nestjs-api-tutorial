@@ -12,7 +12,13 @@ export declare class AuthController {
         firstName: string | null;
         lastName: string | null;
     }>;
-    signin(): {
-        msg: string;
-    };
+    signin(dto: AuthDto): Promise<{
+        email: string;
+        id: number;
+        createdAt: Date;
+        updatedAt: Date;
+        hash: string;
+        firstName: string | null;
+        lastName: string | null;
+    }>;
 }
