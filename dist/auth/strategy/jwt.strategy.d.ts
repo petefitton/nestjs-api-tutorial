@@ -5,7 +5,6 @@ declare const JwtStrategy_base: new (...args: [opt: import("passport-jwt").Strat
     validate(...args: any[]): unknown;
 };
 export declare class JwtStrategy extends JwtStrategy_base {
-    private config;
     private prisma;
     constructor(config: ConfigService, prisma: PrismaService);
     validate(payload: {
