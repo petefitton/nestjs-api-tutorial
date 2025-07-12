@@ -1,3 +1,10 @@
+# TUTORIAL
+Code-along from YouTube:
+https://www.youtube.com/watch?v=GHTA143_b-s
+
+Associated GitHub repo:
+https://github.com/vladwulf/nestjs-api-tutorial/tree/main
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
