@@ -8,7 +8,11 @@ import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AuthService {
-  constructor(private prisma: PrismaService, private jwt: JwtService, private config: ConfigService,) {}
+  constructor(
+    private prisma: PrismaService,
+    private jwt: JwtService,
+    private config: ConfigService,
+  ) {}
   async signup(dto: AuthDto) {
     // generate the password
     const hash = await argon.hash(dto.password);
@@ -26,9 +30,7 @@ export class AuthService {
     } catch (error) {
       if (error instanceof PrismaClientKnownRequestError) {
         if (error.code === 'P2002') {
-          throw new ForbiddenException(
-            'Credentials taken',
-          );
+          throw new ForbiddenException('Credentials taken');
         }
       }
       throw error;
@@ -38,8 +40,8 @@ export class AuthService {
     // find the user by email
     const user = await this.prisma.user.findUnique({
       where: {
-        email: dto.email
-      }
+        email: dto.email,
+      },
     });
     // if user does not exist, throw exception
     if (!user) throw new ForbiddenException('Credentials incorrect');
@@ -69,6 +71,6 @@ export class AuthService {
 
     return {
       access_token: token,
-    }
+    };
   }
 }
